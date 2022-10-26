@@ -26,6 +26,7 @@ import br.com.alura.forum.repository.RecursosRepository;
 		private String codChip;
 		private String keyLicenca;
 		private String mac;
+		private byte[] imagem;
 	
 		
 		
@@ -208,6 +209,21 @@ import br.com.alura.forum.repository.RecursosRepository;
 			this.mac = mac;
 		}
 
+		
+
+
+			public byte[] getImagem() {
+			return imagem;
+		}
+
+
+
+
+		public void setImagem(byte[] imagem) {
+			this.imagem = imagem;
+		}
+
+
 
 
 			public Recursos atualizar(Long id, RecursosRepository recursosRepository) {
@@ -225,6 +241,7 @@ import br.com.alura.forum.repository.RecursosRepository;
 				recursos.setNumChip(numChip);
 				recursos.setRam(ram);
 				recursos.setMac(mac);
+				recursos.setImagem(imagem);
 				
 				return recursos;
 			}

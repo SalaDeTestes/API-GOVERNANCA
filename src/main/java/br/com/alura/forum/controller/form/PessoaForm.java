@@ -20,7 +20,6 @@ import br.com.alura.forum.modelo.Pessoa;
 		private String empresa;
 		@NotNull @NotEmpty
 		private String email;
-		@NotNull @NotEmpty
 		private String senha;
 		
 		

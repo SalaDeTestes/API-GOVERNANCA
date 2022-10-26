@@ -24,6 +24,7 @@ public class RecursosDto {
 	private String codChip;
 	private String keyLicenca;
 	private String mac;
+	private byte [] imagem;
 	
 	public RecursosDto(Recursos recursos) {	
 		this.id = recursos.getId() != null ? recursos.getId():null; //codigo do leandro do esclamação para frente, serve para tratar campo null no banco de dados;
@@ -41,6 +42,7 @@ public class RecursosDto {
 		this.codChip = recursos.getCodChip();
 		this.keyLicenca = recursos.getKeyLicença();
 		this.mac = recursos.getMac();
+		this.imagem = recursos.getImagem();
 	
 		
 	}
@@ -128,6 +130,20 @@ public class RecursosDto {
 	public String getKeyLicenca() {
 		return keyLicenca;
 	}
+	
+	
+	public String getMac() {
+		return mac;
+	}
+	
+	
+	
+
+
+
+	public byte[] getImagem() {
+		return imagem;
+	}
 
 
 
@@ -138,10 +154,7 @@ public class RecursosDto {
 
 
 
-	public String getMac() {
-		return mac;
-	}
-
+	
 
 
 	

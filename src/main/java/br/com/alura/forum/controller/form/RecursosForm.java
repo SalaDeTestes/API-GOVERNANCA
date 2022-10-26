@@ -24,6 +24,7 @@
 		private String codChip;
 		private String keyLicenca;
 		private String mac;
+		private byte[] imagem;
 
 		
 			
@@ -183,12 +184,23 @@
 			this.keyLicenca = keyLicenca;
 		}
 
+			
 		
+		public byte[] getImagem() {
+			return imagem;
+		}
+
+
+
+		public void setImagem(byte[] imagem) {
+			this.imagem = imagem;
+		}
+		
+		
+
+
+
 		public Recursos formulario() {
-			//Topico topico = new Topico();
-			//topico.setTitulo(titulo);
-			//topico.setMensagem(mensagem);
-			//topico.setCurso(curso);
 			
 			Recursos recursos = new Recursos();
 			recursos.setMarca(marca);
@@ -203,7 +215,8 @@
 			recursos.setStatus(status);
 			recursos.setNumChip(numChip);
 			recursos.setRam(ram);
-			
+			recursos.setImagem(imagem);
+			recursos.setMac(mac);
 			
 			return recursos;
 		}

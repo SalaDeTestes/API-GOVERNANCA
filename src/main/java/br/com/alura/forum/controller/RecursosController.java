@@ -1,5 +1,6 @@
 package br.com.alura.forum.controller;
 
+import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
@@ -16,7 +17,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
 
 
@@ -51,7 +54,14 @@ public class RecursosController {
 			
 			@PostMapping
 			@Transactional
-			public ResponseEntity<RecursosDto> cadastrar(@RequestBody @Valid RecursosForm form, UriComponentsBuilder uriBuilder ) {
+			public ResponseEntity<RecursosDto> cadastrar( @Valid RecursosForm form, @RequestParam("fileRecurso") MultipartFile file, UriComponentsBuilder uriBuilder ) {
+			
+				try {
+					form.setImagem(file.getBytes());
+				} catch (IOException e) {
+
+					e.printStackTrace();
+				}
 				
 				Recursos recursos = form.formulario();
 				recursosRepository.save(recursos);
@@ -70,6 +80,15 @@ public class RecursosController {
 				
 				return ResponseEntity.notFound().build();
 				}
+			
+			@GetMapping("/imagem/{idprod}")
+			@Transactional
+			public byte[] exibirImagem(@PathVariable Long idprod) {
+				Recursos recursos = recursosRepository.getOne(idprod);
+				
+					return recursos.getImagem();
+				
+			}
 			
 			@PutMapping("/{id}")
 			@Transactional

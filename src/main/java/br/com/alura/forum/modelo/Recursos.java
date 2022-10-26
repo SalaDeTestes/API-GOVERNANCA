@@ -5,6 +5,7 @@ package br.com.alura.forum.modelo;
 	import javax.persistence.GeneratedValue;
 	import javax.persistence.GenerationType;
 	import javax.persistence.Id;
+import javax.persistence.Lob;
 
 
 	@Entity
@@ -26,6 +27,8 @@ package br.com.alura.forum.modelo;
 		private String codChip;
 		private String keyLicenca;
 		private String mac;
+		@Lob
+		private byte[] imagem;
 		
 		
 		
@@ -36,7 +39,7 @@ package br.com.alura.forum.modelo;
 		}
 
 
-		public Recursos(String marca, String modelo, String imei, String ram, String processador, String condicao, String observacao, String tag, String numChip, String status, String codChip, String keyLicenca, String mac, String funcionario, String funcionario_old ) {
+		public Recursos(String marca, String modelo, String imei, String ram, String processador, String condicao, String observacao, String tag, String numChip, String status, String codChip, String keyLicenca, String mac ) {
 			
 			this.marca = marca;
 			this.modelo = modelo;
@@ -203,6 +206,19 @@ package br.com.alura.forum.modelo;
 		public void setMac(String mac) {
 			this.mac = mac;
 		}
+
+
+		public byte[] getImagem() {
+			return imagem;
+		}
+
+
+		public void setImagem(byte[] imagem) {
+			this.imagem = imagem;
+		}
+		
+		
+		
 
 
 
